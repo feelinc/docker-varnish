@@ -28,13 +28,13 @@ RUN \
   apt-get update && \
   mkdir -p /usr/local/src && \
   cd /usr/local/src && \
-  curl -sfLO https://repo.varnish-cache.org/source/varnish-$VARNISH_VERSION.tar.gz && \
-  tar -xzf varnish-$VARNISH_VERSION.tar.gz && \
+  curl -sfLO https://varnish-cache.org/_downloads/varnish-$VARNISH_VERSION.tgz && \
+  tar -xzf varnish-$VARNISH_VERSION.tgz && \
   cd varnish-$VARNISH_VERSION && \
   ./autogen.sh && \
   ./configure && \
   make install && \
-  rm ../varnish-$VARNISH_VERSION.tar.gz
+  rm ../varnish-$VARNISH_VERSION.tgz
 
 COPY start-varnishd.sh /usr/local/bin/start-varnishd
 RUN chmod +x /usr/local/bin/start-varnishd
